@@ -1,6 +1,6 @@
 %define	name	adesklets
 %define	version	0.6.1
-%define	release	%mkrel 4
+%define	release	%mkrel 5
 
 Summary:        Simple desklets for Unix
 Name:           %name
