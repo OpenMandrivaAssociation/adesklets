@@ -9,6 +9,8 @@ Release:        %release
 License:        GPL
 URL:            http://adesklets.sourceforge.net/
 Source0:        %{name}-%{version}.tar.bz2
+Patch0:		adesklets-0.6.1-fix-str-fmt.patch
+Patch1:		adesklets-0.6.1-linkage.patch
 Group:          Graphical desktop/Other
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	tkinter
@@ -23,9 +25,11 @@ interactive desktop integrated graphic applets (aka "desklets").
 
 %prep
 %setup -q
+%patch0 -p0
+%patch1 -p0
 
 %build
-%configure
+%configure2_5x
 pushd scripting/perl/
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 popd
