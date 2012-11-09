@@ -1,0 +1,11 @@
+--- src/event.c~	2006-03-09 09:56:14.000000000 +0100
++++ src/event.c	2009-01-22 09:49:31.000000000 +0100
+@@ -90,7 +90,7 @@
+   int i;
+   if (events) {
+     for(i=0;i<events->pos;++i) {
+-      fprintf(stderr,events->content[i]);
++      fprintf(stderr,"%s",(const char *)(events->content[i]));
+       if (events_ppid)
+ 	kill(events_ppid,SIGUSR1);
+     }
