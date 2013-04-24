@@ -1,18 +1,13 @@
-%define	name	adesklets
-%define	version	0.6.1
-%define	release	%mkrel 8
-
 Summary:        Simple desklets for Unix
-Name:           %name
-Version:        %version
-Release:        %release
+Name:           adesklets
+Version:        0.6.1
+Release:        9
 License:        GPL
 URL:            http://adesklets.sourceforge.net/
 Source0:        %{name}-%{version}.tar.bz2
 Patch0:		adesklets-0.6.1-fix-str-fmt.patch
 Patch1:		adesklets-0.6.1-linkage.patch
 Group:          Graphical desktop/Other
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	tkinter
 BuildRequires:  imlib2-devel python-devel
 BuildRequires:  ncurses-devel
@@ -38,22 +33,12 @@ popd
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_mandir}/man1
-mkdir -p $RPM_BUILD_ROOT%{_infodir}
+mkdir -p %{buildroot}%{_mandir}/man1
+mkdir -p %{buildroot}%{_infodir}
 %makeinstall_std
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%post
-%_install_info %{_infodir}/%{name}*
-
-%preun
-%_remove_install_info %{_infodir}/%{name}*
 
 %files
-%defattr(-,root,root)
 %doc README ChangeLog NEWS INSTALL COPYING AUTHORS 
 %{_bindir}/*
 %{_infodir}/*
@@ -94,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
     - kill re-definition of %%buildroot on Pixel's request
 
 
-* Wed Dec 13 2006 Nicolas Lécureuil <neoclust@mandriva.org> 0.6.1-3mdv2007.0
+* Wed Dec 13 2006 Nicolas LÃ©cureuil <neoclust@mandriva.org> 0.6.1-3mdv2007.0
 + Revision: 96503
 - Rebuild against new python
 - Import adesklets
@@ -102,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 * Wed Jun 28 2006 Lenny Cartier <lenny@mandriva.com> 0.6.1-2mdv2007.0
 - rebuild
 
-* Sat May 06 2006 Nicolas L�cureuil <neoclust@mandriva.org> 0.6.1-1mdk
+* Sat May 06 2006 Nicolas Lécureuil <neoclust@mandriva.org> 0.6.1-1mdk
 - New release 0.6.1
 
 * Wed Mar 29 2006 Pascal Terjan <pterjan@mandriva.org> 0.6.0-2mdk
@@ -114,7 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 * Wed Dec 14 2005 Pascal Terjan <pterjan@mandriva.org> 0.5.0-1mdk
 - 0.5.0
 
-* Fri Oct 07 2005 Nicolas L�cureuil <neoclust@mandriva.org> 0.4.11-2mdk
+* Fri Oct 07 2005 Nicolas Lécureuil <neoclust@mandriva.org> 0.4.11-2mdk
 - Fix BuildRequires
 
 * Sat Sep 03 2005 Pascal Terjan <pterjan@mandriva.org> 0.4.11-1mdk
