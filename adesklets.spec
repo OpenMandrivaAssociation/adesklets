@@ -1,7 +1,7 @@
 Summary:        Simple desklets for Unix
 Name:           adesklets
 Version:        0.6.1
-Release:        9
+Release:        10
 License:        GPL
 URL:            http://adesklets.sourceforge.net/
 Source0:        %{name}-%{version}.tar.bz2
