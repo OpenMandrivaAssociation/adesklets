@@ -44,13 +44,15 @@ mkdir -p %{buildroot}%{_mandir}/man1
 mkdir -p %{buildroot}%{_infodir}
 %makeinstall_std
 
-sed -i -e 's,env python,python2,' %{buildroot}%{_bindir}/*
+pushd %{buildroot}%{_bindir}
+find . -type f -name "%{name}_*" -exec sed -i -e 's,env python,python2,'{} \;
+popd
 
 %files
 %doc README ChangeLog NEWS INSTALL COPYING AUTHORS 
 %{_bindir}/*
 %{_infodir}/*
-%py2_platsitedir/*
+%{py2_platsitedir}/*
 %{perl_vendorlib}/*
 %{_datadir}/adesklets
 %{_mandir}/*/*
