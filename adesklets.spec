@@ -37,7 +37,7 @@ ln -s %{_bindir}/python2 python
 export PATH=`pwd`:$PATH
 export CPPFLAGS=-I/usr/local/include
 export LDFLAGS="-lm"
-
+autoreconf -fiv
 %configure
 pushd scripting/perl/
 %{__perl} Makefile.PL INSTALLDIRS=vendor
