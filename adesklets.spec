@@ -16,6 +16,9 @@ BuildRequires:  python2-devel
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  readline-devel
 BuildRequires:  perl-devel
+BuildRequires:  byacc
+BuildRequires:  bison
+
 
 %description
 adesklets is an interactive Imlib2 console for the X Window system. It provides
@@ -33,6 +36,7 @@ ln -s %{_bindir}/python2 python
 export PATH=`pwd`:$PATH
 
 export LDFLAGS="-lm"
+
 %configure
 pushd scripting/perl/
 %{__perl} Makefile.PL INSTALLDIRS=vendor
