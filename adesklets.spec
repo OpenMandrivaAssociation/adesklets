@@ -35,7 +35,7 @@ interactive desktop integrated graphic applets (aka "desklets").
 %build
 ln -s %{_bindir}/python2 python
 export PATH=`pwd`:$PATH
-
+export CPPFLAGS=-I/usr/local/include
 export LDFLAGS="-lm"
 
 %configure
