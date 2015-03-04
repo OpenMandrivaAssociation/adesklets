@@ -17,6 +17,7 @@ BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  readline-devel
 BuildRequires:  perl-devel
 BuildRequires:  byacc
+BuildRequires:  flex
 BuildRequires:  bison
 
 
