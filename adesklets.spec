@@ -9,8 +9,10 @@ Patch0:		adesklets-0.6.1-fix-str-fmt.patch
 Patch1:		adesklets-0.6.1-linkage.patch
 Group:          Graphical desktop/Other
 Requires:	tkinter
+Requires:	python2
+
 BuildRequires:  imlib2-devel 
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  readline-devel
 BuildRequires:  perl-devel
@@ -24,9 +26,12 @@ interactive desktop integrated graphic applets (aka "desklets").
 %setup -q
 %patch0 -p0
 %patch1 -p0
-find . -name "*.py" |xargs 2to3 -w
+
 
 %build
+ln -s %{_bindir}/python2 python
+export PATH=`pwd`:$PATH
+
 export LDFLAGS="-lm"
 %configure
 pushd scripting/perl/
@@ -39,12 +44,13 @@ mkdir -p %{buildroot}%{_mandir}/man1
 mkdir -p %{buildroot}%{_infodir}
 %makeinstall_std
 
+sed -i -e 's,env python,python2,' %{buildroot}%{_bindir}/*
 
 %files
 %doc README ChangeLog NEWS INSTALL COPYING AUTHORS 
 %{_bindir}/*
 %{_infodir}/*
-%py_platsitedir/*
+%py2_platsitedir/*
 %{perl_vendorlib}/*
 %{_datadir}/adesklets
 %{_mandir}/*/*
