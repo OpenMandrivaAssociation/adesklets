@@ -3,7 +3,7 @@ Name:           adesklets
 Version:        0.6.1
 Release:        10
 License:        GPL
-URL:            http://adesklets.sourceforge.net/
+URL:            https://adesklets.sourceforge.net/
 Source0:        %{name}-%{version}.tar.bz2
 Patch0:		adesklets-0.6.1-fix-str-fmt.patch
 Patch1:		adesklets-0.6.1-linkage.patch
