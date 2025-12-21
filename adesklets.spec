@@ -11,6 +11,11 @@ Group:          Graphical desktop/Other
 Requires:	tkinter
 Requires:	python2
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  imlib2-devel 
 BuildRequires:  python2-devel
 BuildRequires:  pkgconfig(ncurses)
